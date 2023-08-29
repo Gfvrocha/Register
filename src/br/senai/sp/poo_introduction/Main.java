@@ -1,5 +1,6 @@
 package br.senai.sp.poo_introduction;
 
+import br.senai.sp.poo_introduction.Model.Output;
 import br.senai.sp.poo_introduction.Model.Register;
 import br.senai.sp.poo_introduction.Model.Student;
 import br.senai.sp.poo_introduction.Model.Teacher;
@@ -14,21 +15,21 @@ public class Main {
         /** Instance Register */
         Register objRegister = new Register();
 
-        int escolha;
+        int selection;
 
-        System.out.println("O que deseja fazer ? \n1 - Cadastrar Professor \n2 - Cadastar Aluno \n3 - Cadastrar Ambos");
-        System.out.print("Sua escolha : ");
-        escolha = teclado.nextInt();
+        System.out.println("What do you want to do ? \n1 - Register Teacher \n2 - Register Student \n3 - Register Both");
+        System.out.print("Your choice: ");
+        selection = teclado.nextInt();
 
-        if(escolha == 1) {
+        if(selection == 1) {
             objRegister.RegisterTeacher();
-        } else if (escolha == 2){
+        } else if (selection == 2){
             objRegister.ResgisterStudent();
-        } else if (escolha == 3) {
+        } else if (selection == 3) {
             objRegister.BothRegister();
 
         } else {
-            System.out.println("Escolha inválida!");
+            System.out.println("Invalid choice!");
         }
     }
 }

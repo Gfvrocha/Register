@@ -4,15 +4,22 @@ import java.util.Scanner;
 
 public class Register {
 
+    /** Instance Student */
+    Student objStudent = new Student();
+    /** Instance Teacher */
+    Teacher objTeacher = new Teacher();
+
+
     /** instance Scanner */
     Scanner teclado = new Scanner(System.in);
 
+    /** Instance Output */
+    Output objOutput = new Output();
+
+    boolean flag = true;
+
 
     public void RegisterTeacher() {
-
-
-        /** Instance Teacher */
-        Teacher objTeacher = new Teacher();
 
         /** Collect data Teacher */
         System.out.println("=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=");
@@ -28,19 +35,12 @@ public class Register {
         objTeacher.specialist = teclado.next();
         System.out.println("=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=");
 
-        /** Print Teacher */
-
-        System.out.println("Teacher's name is: " + objTeacher.name);
-        System.out.println("Your age is: " + objTeacher.age);
-        System.out.println("Your e-mail is: " + objTeacher.email);
-        System.out.println("Your whatsApp: " + objTeacher.phoneNumber);
-        System.out.println("Your Specialist: " + objTeacher.specialist);
+        if (flag){
+            objOutput.PrintTeacher(objTeacher);
+        }
     }
 
     public void ResgisterStudent() {
-
-        /** Instance Student */
-        Student objStudent = new Student();
 
         /** Collect data Student */
         System.out.println("=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=");
@@ -57,21 +57,21 @@ public class Register {
         System.out.println("What is the frequency of " + objStudent.name + ": ");
         objStudent.frequency = teclado.nextInt();
 
-        /** Print Student */
-
-        System.out.println("Name: " + objStudent.name);
-        System.out.println("Your age is: " + objStudent.age);
-        System.out.println("Your e-mail is: " + objStudent.email);
-        System.out.println("Note One of " + objStudent.name + ": " + objStudent.note1);
-        System.out.println("Note Two of " + objStudent.name + ": " + objStudent.note2);
-        System.out.println("Your frequency: " + objStudent.frequency);
-        System.out.println("=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=");
-
+        if(flag){
+            objOutput.PrintStudent(objStudent);
+        }
 
     }
 
     public void BothRegister(){
+        flag = false;
+
+
         ResgisterStudent();
         RegisterTeacher();
+
+        objOutput.PrintTeacher(objTeacher);
+        objOutput.PrintStudent(objStudent);
+
     }
 }
